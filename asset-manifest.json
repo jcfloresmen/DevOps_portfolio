@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/DevOps_portfolio/static/css/main.e1e38d83.css",
+    "main.js": "/DevOps_portfolio/static/js/main.8e059167.js",
+    "static/js/453.c2e8e339.chunk.js": "/DevOps_portfolio/static/js/453.c2e8e339.chunk.js",
+    "static/media/photo-jcfloresmen.jpeg": "/DevOps_portfolio/static/media/photo-jcfloresmen.9fc7cc94328c53d2d784.jpeg",
+    "index.html": "/DevOps_portfolio/index.html",
+    "main.e1e38d83.css.map": "/DevOps_portfolio/static/css/main.e1e38d83.css.map",
+    "main.8e059167.js.map": "/DevOps_portfolio/static/js/main.8e059167.js.map",
+    "453.c2e8e339.chunk.js.map": "/DevOps_portfolio/static/js/453.c2e8e339.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e1e38d83.css",
+    "static/js/main.8e059167.js"
+  ]
+}
