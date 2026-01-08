@@ -1,194 +1,138 @@
 /* ==========================
-   THEME COLORS - CABALLERO
+   SISTEMA DE COLORES: EL ARSENAL
 ========================== */
 :root {
-  --primary-blue: #1E3A8A;   /* azul profundo */
-  --secondary-gray: #6B7280; /* gris cálido */
-  --bg-light: #F3F4F6;       /* fondo claro */
-  --bg-dark: #121212;        /* fondo oscuro */
-  --text-light: #1F2937;     /* texto claro */
-  --text-dark: #E5E7EB;      /* texto oscuro */
-  --accent-color: #1D4ED8;   /* azul acento */
-  --border-color: #D1D5DB;
-  --card-bg: #ffffff;
-  --card-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
-  --navbar-bg: #F3F4F6;
-  --navbar-text: #1F2937;
-  --hero-bg: linear-gradient(135deg, #1E3A8A, #2563EB, #93C5FD);
-  --hero-text: #1F2937;
-  --transition-speed: 0.3s;
+  /* Temática Civil (Light) */
+  --bg-app: #F3F4F6;
+  --bg-card: #FFFFFF;
+  --bg-navbar: rgba(243, 244, 246, 0.8);
+  --text-main: #1F2937;
+  --text-muted: #6B7280;
+  --accent: #1E3A8A;
+  --accent-hover: #1D4ED8;
+  --border: #D1D5DB;
+  --hero-gradient: linear-gradient(135deg, #1E3A8A, #2563EB, #93C5FD);
+  --shadow-standard: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 [data-theme='dark'] {
-  --bg-primary: #121212;
-  --bg-secondary: #1F2937;
-  --text-primary: #E5E7EB;
-  --text-secondary: #9CA3AF;
-  --accent-color: #1D4ED8;
-  --border-color: #374151;
-  --card-bg: #1F2937;
-  --card-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.6);
-  --navbar-bg: #121212;
-  --navbar-text: #E5E7EB;
-  --hero-bg: linear-gradient(135deg, #1E40AF, #2563EB, #3B82F6);
-  --hero-text: #E5E7EB;
+  /* Temática Operativa (Dark) */
+  --bg-app: #0F172A;
+  --bg-card: #1E293B;
+  --bg-navbar: rgba(15, 23, 42, 0.85);
+  --text-main: #F8FAFC;
+  --text-muted: #94A3B8;
+  --accent: #3B82F6;
+  --accent-hover: #60A5FA;
+  --border: #334155;
+  --hero-gradient: linear-gradient(135deg, #0F172A, #1E3A8A, #2563EB);
+  --shadow-standard: 0 10px 15px rgba(0, 0, 0, 0.4);
 }
 
 /* ==========================
-   NAVBAR
+   NAVEGACIÓN DE PRECISIÓN
 ========================== */
-.navbar-dark .navbar-nav .nav-link.active {
-  color: var(--accent-color) !important;
-  position: relative;
-  font-weight: 500;
+.navbar-glass {
+  backdrop-filter: blur(12px);
+  background-color: var(--bg-navbar);
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s ease;
 }
 
-.navbar-dark .navbar-nav .nav-link.active::after {
+.nav-link.active {
+  color: var(--accent) !important;
+  font-weight: 700;
+  position: relative;
+}
+
+.nav-link.active::after {
   content: '';
   position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: var(--accent-color);
-}
-
-/* Glass navbar */
-.navbar-glass {
-  backdrop-filter: blur(10px);
-  background-color: rgba(0,0,0,0.7);
+  bottom: 0; left: 10%;
+  width: 80%; height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
 }
 
 /* ==========================
-   GENERAL SECTIONS & SCROLL
+   ESTRUCTURA DE SECCIONES
 ========================== */
-html {
-  scroll-behavior: smooth;
+html { scroll-behavior: smooth; }
+
+section {
+  padding: 80px 0;
+  scroll-margin-top: 80px;
 }
 
-section[id] {
-  scroll-margin-top: 70px;
-}
-
-@media (max-width: 991.98px) {
-  section[id] {
-    scroll-margin-top: 56px;
-  }
-}
-
-/* Mobile fixes */
-@media (max-width: 575px) {
-  .container {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
-  .cta-button {
-    margin: 5px;
-    padding: 8px 16px;
-    font-size: 14px;
-  }
-
-  .display-4 {
-    font-size: 2rem !important;
-  }
-
-  .lead {
-    font-size: 1rem;
-  }
-}
-
-/* ==========================
-   SECTION TITLES & SEQUENTIAL ANIMATION
-========================== */
+/* Animación de Entrada Secuencial */
 .section-title {
   opacity: 0;
-  font-weight: bold;
-  color: var(--accent-color);
-  text-align: center;
-  transition: opacity 0.7s ease, transform 0.7s ease;
-  transition-delay: var(--delay, 0s);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  letter-spacing: -0.5px;
 }
 
-/* Alternating left/right */
-#home .section-title { transform: translateX(-50px); }
-#about .section-title { transform: translateX(50px); }
-#skills .section-title { transform: translateX(-50px); }
-#projects .section-title { transform: translateX(50px); }
-#resume .section-title { transform: translateX(-50px); }
-#contact .section-title { transform: translateX(50px); }
+/* Desplazamiento alternado según la sección */
+#home .section-title, #skills .section-title, #resume .section-title { transform: translateX(-40px); }
+#about .section-title, #projects .section-title, #contact .section-title { transform: translateX(40px); }
 
-/* Animación visible */
 .section-title.animate {
   opacity: 1;
   transform: translateX(0) !important;
 }
 
 /* ==========================
-   CARDS, PROJECTS & ICONS
+   COMPONENTES: BLINDAJE Y ACCIÓN
 ========================== */
 .project-card {
-  margin-bottom: 30px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-standard);
+  border-color: var(--accent);
 }
 
-.skill-icon {
-  font-size: 3rem;
-  margin-bottom: 15px;
-}
-
-.skill-icon:hover,
-.card:hover .skill-icon {
-  transform: none !important;
-}
-
-/* Buttons */
+/* Botón de Acción Principal */
 .cta-button {
-  margin: 10px;
-  padding: 10px 20px;
-  font-weight: bold;
-  background-color: var(--accent-color);
-  color: #fff;
-  border: 2px solid var(--accent-color);
-  border-radius: 4px;
-  transition: all 0.3s ease;
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: var(--accent);
+  color: #FFFFFF !important;
+  border: 2px solid var(--accent);
+  border-radius: 6px;
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
 }
 
 .cta-button:hover {
-  background-color: #fff;
-  color: var(--accent-color);
-  transform: translateY(-3px);
-  box-shadow: 0 4px 8px rgba(29,78,216,0.3);
+  background-color: transparent;
+  color: var(--accent) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(30, 58, 138, 0.2);
 }
 
 /* ==========================
-   CONTACT & FOOTER
+   ADAPTACIÓN MÓVIL (FUERZA BRUTA)
 ========================== */
-.contact-icon {
-  font-size: 2rem;
-  margin: 0 10px;
+@media (max-width: 768px) {
+  .section-title { font-size: 2rem; }
+  .cta-button { width: 100%; text-align: center; margin: 10px 0; }
+  section { padding: 50px 0; }
 }
 
-.footer {
-  padding: 20px 0;
-  text-align: center;
+/* Iconos de Habilidad: Sin distorsión, solo presencia */
+.skill-icon {
+  font-size: 3.5rem;
+  color: var(--accent);
+  filter: grayscale(20%);
+  transition: filter 0.3s ease;
 }
 
-/* Resume Download Button */
-.resume-download-btn {
-  background-color: var(--accent-color);
-  color: #fff;
-  border: 2px solid var(--accent-color);
-  padding: 0.75rem 1.5rem;
-}
-
-.resume-download-btn:hover {
-  background-color: #fff;
-  color: var(--accent-color);
-  border-color: var(--accent-color);
+.skill-icon:hover {
+  filter: grayscale(0%) drop-shadow(0 0 8px var(--accent));
 }

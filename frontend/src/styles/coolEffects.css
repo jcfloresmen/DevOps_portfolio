@@ -1,202 +1,153 @@
 /* ==========================
-   MODERN CABALLERO PALETTE
+   NÚCLEO Y PALETA MAESTRA
 ========================== */
 :root {
-  --primary-blue: #1E3A8A;       /* azul profundo */
-  --secondary-gray: #6B7280;     /* gris cálido */
-  --accent-blue: #1D4ED8;        /* azul acento fuerte */
-  --deep-teal: #0D9488;          /* verde-teal sobrio */
-  --warm-gold: #F59E0B;          /* acento amarillo cálido */
-  --bg-light: #F3F4F6;
-  --bg-dark: #121212;
-  --text-light: #1F2937;
-  --text-dark: #E5E7EB;
-  --border-color: #D1D5DB;
+  --primary-blue: #1E3A8A;
+  --accent-blue: #1D4ED8;
+  --deep-teal: #0D9488;
+  --warm-gold: #F59E0B;
+  
+  /* Temática Luz: Limpieza y Claridad */
+  --bg-app: #F9FAFB;
+  --bg-card: #FFFFFF;
+  --text-main: #111827;
+  --text-muted: #4B5563;
+  --border: #E5E7EB;
+  --shadow-knight: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme='dark'] {
+  /* Temática Caballero: Profundidad y Poder */
+  --bg-app: #0B0F1A;
+  --bg-card: #161E2E;
+  --text-main: #F9FAFB;
+  --text-muted: #9CA3AF;
+  --border: #1F2937;
+  --shadow-knight: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
 }
 
 /* ==========================
-   GRADIENT TEXT CABALLERO
+   TEXTO GRADIENTE DINÁMICO
 ========================== */
 .gradient-text {
   background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue), var(--deep-teal));
+  background-size: 200% auto;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  animation: gradient-shift 8s ease infinite;
-  background-size: 300% 300%;
-  position: relative;
+  font-weight: 800;
+  animation: shine 4s linear infinite;
 }
 
-.gradient-text::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: -1;
-  background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue), var(--deep-teal));
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  filter: blur(6px);
-  opacity: 0.7;
+@keyframes shine {
+  to { background-position: 200% center; }
 }
 
 /* ==========================
-   BUTTONS CABALLERO
+   EL BOTÓN DE ÉLITE (CTA)
 ========================== */
 .cta-button {
   position: relative;
+  padding: 12px 24px;
+  background: var(--accent-blue);
+  color: #FFFFFF !important;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  z-index: 1;
-  background-color: var(--accent-blue);
-  border: 2px solid var(--accent-blue);
-  color: #fff !important;
-}
-
-.cta-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, var(--primary-blue), var(--accent-blue));
-  opacity: 0;
-  z-index: -1;
-  transition: opacity 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 4px 14px 0 rgba(29, 78, 216, 0.39);
 }
 
 .cta-button:hover {
-  transform: translateY(-5px) scale(1.03);
-  color: white !important;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(29, 78, 216, 0.45);
+  background: var(--primary-blue);
+}
+
+/* El efecto de brillo interno al pasar el cursor */
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: 0.5s;
 }
 
 .cta-button:hover::before {
-  opacity: 1;
-}
-
-/* Glow effect */
-.glow-button {
-  box-shadow: 0 0 15px rgba(29,78,216,0.4);
-}
-
-.glow-button:hover {
-  box-shadow: 0 0 30px var(--accent-blue), 0 0 60px rgba(29,78,216,0.4);
-  background: linear-gradient(45deg, var(--primary-blue), var(--accent-blue)) !important;
-  border-color: var(--accent-blue) !important;
+  left: 100%;
 }
 
 /* ==========================
-   PROJECT CARDS CABALLERO
+   TARJETAS DE PROYECTO: EL BLINDAJE
 ========================== */
 .project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border-radius: 16px !important;
-  overflow: hidden;
   position: relative;
-}
-
-.project-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 5px;
-  background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue), var(--deep-teal));
-  transform: scaleX(0);
-  transition: transform 0.5s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-15px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  transform: translateY(-12px);
+  border-color: var(--accent-blue);
+  box-shadow: var(--shadow-knight);
 }
 
-.project-card:hover::before {
+/* Línea de progreso superior en hover */
+.project-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 4px;
+  background: linear-gradient(90deg, var(--primary-blue), var(--deep-teal));
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+  border-radius: 16px 16px 0 0;
+}
+
+.project-card:hover::after {
   transform: scaleX(1);
 }
 
-/* Spotlight effect */
-.spotlight-card::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    circle at var(--x, 50%) var(--y, 50%),
-    rgba(29,78,216,0.8) 0%,
-    rgba(29,78,216,0.2) 40%,
-    rgba(29,78,216,0) 60%
-  );
-  opacity: 0;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-.spotlight-card:hover::before {
-  opacity: 1;
-}
-
-.spotlight-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
-
 /* ==========================
-   NAVBAR CABALLERO
+   NAVBAR: NAVEGACIÓN TÁCTICA
 ========================== */
 .navbar-nav .nav-link {
-  position: relative;
-  transition: all 0.3s ease;
-  overflow: hidden;
+  color: var(--text-main) !important;
+  font-weight: 500;
+  margin: 0 10px;
+  transition: var(--transition-standard);
 }
 
 .navbar-nav .nav-link::after {
   content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue));
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.4s cubic-bezier(0.86,0,0.07,1);
-}
-
-.navbar-nav .nav-link:hover {
-  color: var(--accent-blue) !important;
-  transform: translateY(-2px);
+  display: block;
+  width: 0; height: 2px;
+  background: var(--accent-blue);
+  transition: width 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
 }
 
 .navbar-nav .nav-link:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
+  width: 100%;
 }
 
 /* ==========================
-   DARK MODE CABALLERO
+   HÉROE Y SECCIONES
 ========================== */
-[data-theme='dark'] .gradient-text {
-  background: linear-gradient(90deg, var(--deep-teal), var(--primary-blue), var(--accent-blue));
-  color: transparent;
-  text-shadow: 0 0 15px rgba(29,78,216,0.5);
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text-main);
 }
 
-[data-theme='dark'] .glow-button:hover {
-  box-shadow: 0 0 30px var(--accent-blue), 0 0 60px rgba(29,78,216,0.4);
-  background: linear-gradient(45deg, var(--primary-blue), var(--accent-blue)) !important;
-}
-
-[data-theme='dark'] .navbar-nav .nav-link:hover {
-  color: var(--accent-blue) !important;
-}
-
-[data-theme='dark'] .project-card::before {
-  background: linear-gradient(90deg, var(--deep-teal), var(--primary-blue), var(--accent-blue));
+.section-title span {
+  border-bottom: 4px solid var(--accent-blue);
 }
