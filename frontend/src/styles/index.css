@@ -1,4 +1,42 @@
-/* Active link styling */
+/* ==========================
+   THEME COLORS - CABALLERO
+========================== */
+:root {
+  --primary-blue: #1E3A8A;   /* azul profundo */
+  --secondary-gray: #6B7280; /* gris cálido */
+  --bg-light: #F3F4F6;       /* fondo claro */
+  --bg-dark: #121212;        /* fondo oscuro */
+  --text-light: #1F2937;     /* texto claro */
+  --text-dark: #E5E7EB;      /* texto oscuro */
+  --accent-color: #1D4ED8;   /* azul acento */
+  --border-color: #D1D5DB;
+  --card-bg: #ffffff;
+  --card-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1);
+  --navbar-bg: #F3F4F6;
+  --navbar-text: #1F2937;
+  --hero-bg: linear-gradient(135deg, #1E3A8A, #2563EB, #93C5FD);
+  --hero-text: #1F2937;
+  --transition-speed: 0.3s;
+}
+
+[data-theme='dark'] {
+  --bg-primary: #121212;
+  --bg-secondary: #1F2937;
+  --text-primary: #E5E7EB;
+  --text-secondary: #9CA3AF;
+  --accent-color: #1D4ED8;
+  --border-color: #374151;
+  --card-bg: #1F2937;
+  --card-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.6);
+  --navbar-bg: #121212;
+  --navbar-text: #E5E7EB;
+  --hero-bg: linear-gradient(135deg, #1E40AF, #2563EB, #3B82F6);
+  --hero-text: #E5E7EB;
+}
+
+/* ==========================
+   NAVBAR
+========================== */
 .navbar-dark .navbar-nav .nav-link.active {
   color: var(--accent-color) !important;
   position: relative;
@@ -15,10 +53,88 @@
   background-color: var(--accent-color);
 }
 
+/* Glass navbar */
+.navbar-glass {
+  backdrop-filter: blur(10px);
+  background-color: rgba(0,0,0,0.7);
+}
 
+/* ==========================
+   GENERAL SECTIONS & SCROLL
+========================== */
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 70px;
+}
+
+@media (max-width: 991.98px) {
+  section[id] {
+    scroll-margin-top: 56px;
+  }
+}
+
+/* Mobile fixes */
+@media (max-width: 575px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .cta-button {
+    margin: 5px;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .display-4 {
+    font-size: 2rem !important;
+  }
+
+  .lead {
+    font-size: 1rem;
+  }
+}
+
+/* ==========================
+   SECTION TITLES & SEQUENTIAL ANIMATION
+========================== */
 .section-title {
-  margin-bottom: 40px;
+  opacity: 0;
+  font-weight: bold;
+  color: var(--accent-color);
   text-align: center;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition-delay: var(--delay, 0s);
+}
+
+/* Alternating left/right */
+#home .section-title { transform: translateX(-50px); }
+#about .section-title { transform: translateX(50px); }
+#skills .section-title { transform: translateX(-50px); }
+#projects .section-title { transform: translateX(50px); }
+#resume .section-title { transform: translateX(-50px); }
+#contact .section-title { transform: translateX(50px); }
+
+/* Animación visible */
+.section-title.animate {
+  opacity: 1;
+  transform: translateX(0) !important;
+}
+
+/* ==========================
+   CARDS, PROJECTS & ICONS
+========================== */
+.project-card {
+  margin-bottom: 30px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
 .skill-icon {
@@ -26,29 +142,33 @@
   margin-bottom: 15px;
 }
 
-/* Override any icon hover effects */
 .skill-icon:hover,
 .card:hover .skill-icon {
   transform: none !important;
 }
 
-.project-card {
-  margin-bottom: 30px;
-  transition: transform 0.3s;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-}
-
+/* Buttons */
 .cta-button {
   margin: 10px;
   padding: 10px 20px;
   font-weight: bold;
+  background-color: var(--accent-color);
+  color: #fff;
+  border: 2px solid var(--accent-color);
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
 
+.cta-button:hover {
+  background-color: #fff;
+  color: var(--accent-color);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(29,78,216,0.3);
+}
 
-
+/* ==========================
+   CONTACT & FOOTER
+========================== */
 .contact-icon {
   font-size: 2rem;
   margin: 0 10px;
@@ -58,102 +178,17 @@
   padding: 20px 0;
   text-align: center;
 }
-/* Single page navigation styling */
-html {
-  scroll-behavior: smooth;
+
+/* Resume Download Button */
+.resume-download-btn {
+  background-color: var(--accent-color);
+  color: #fff;
+  border: 2px solid var(--accent-color);
+  padding: 0.75rem 1.5rem;
 }
 
-/* Fix section scroll positioning */
-html {
-  scroll-behavior: smooth;
-}
-
-section[id] {
-  scroll-margin-top: 70px;
-}
-
-/* Adjust scroll margin for mobile when navbar is collapsed */
-@media (max-width: 991.98px) {
-  section[id] {
-    scroll-margin-top: 56px;
-  }
-}
-
-/* Mobile responsiveness fixes */
-@media (max-width: 575px) {
-  .container {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  
-  .cta-button {
-    margin: 5px;
-    padding: 8px 16px;
-    font-size: 14px;
-  }
-  
-  .display-4 {
-    font-size: 2rem !important;
-  }
-  
-  .lead {
-    font-size: 1rem;
-  }
-}
-
-/* Add some spacing between sections */
-#home, #about, #skills, #projects, #contact {
-  position: relative;
-}
-
-#resume {
-  position: relative;
-  padding-top: 0 !important;
-}
-.navbar-glass {
-  backdrop-filter: blur(10px);
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-
-
-
-
-/* Section title animations */
-.section-title {
-  opacity: 0;
-  color: #ac81c0; /* Blue/purple color to match navbar */
-  font-weight: bold;
-}
-
-/* Alternating left/right animations */
-#home .section-title {
-  transform: translateX(-50px);
-}
-
-#about .section-title {
-  transform: translateX(50px);
-}
-
-#skills .section-title {
-  transform: translateX(-50px);
-}
-
-#projects .section-title {
-  transform: translateX(50px);
-}
-
-#resume .section-title {
-  transform: translateX(-50px);
-}
-
-#contact .section-title {
-  transform: translateX(50px);
-}
-
-/* Animation when visible */
-.section-title.animate {
-  opacity: 1;
-  transform: translateX(0) !important;
-  transition: opacity 0.7s ease, transform 0.7s ease;
+.resume-download-btn:hover {
+  background-color: #fff;
+  color: var(--accent-color);
+  border-color: var(--accent-color);
 }
