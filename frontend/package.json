@@ -1,7 +1,7 @@
 {
   "name": "devops-portfolio",
   "version": "0.1.0",
-  "homepage": "https://apurvagargote.github.io/DevOps_portfolio",
+  "homepage": "https://jfloresmen.github.io/DevOps_portfolio",
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
