@@ -2,10 +2,10 @@
    SISTEMA DE COLORES: EL ARSENAL
 ========================== */
 :root {
-  /* Temática Civil (Light) */
+  /* Light */
   --bg-app: #F3F4F6;
   --bg-card: #FFFFFF;
-  --bg-navbar: rgba(243, 244, 246, 0.8);
+  --bg-navbar: rgba(243, 244, 246, 0.85);
   --text-main: #1F2937;
   --text-muted: #6B7280;
   --accent: #1E3A8A;
@@ -16,10 +16,10 @@
 }
 
 [data-theme='dark'] {
-  /* Temática Operativa (Dark) */
+  /* Dark */
   --bg-app: #0F172A;
   --bg-card: #1E293B;
-  --bg-navbar: rgba(15, 23, 42, 0.85);
+  --bg-navbar: rgba(15, 23, 42, 0.9);
   --text-main: #F8FAFC;
   --text-muted: #94A3B8;
   --accent: #3B82F6;
@@ -30,58 +30,81 @@
 }
 
 /* ==========================
-   NAVEGACIÓN DE PRECISIÓN
+   GLOBAL
 ========================== */
-.navbar-glass {
+body {
+  background-color: var(--bg-app);
+  color: var(--text-main);
+}
+
+/* ==========================
+   NAVBAR – CONTROL TOTAL
+========================== */
+.navbar {
+  background-color: var(--bg-navbar) !important;
   backdrop-filter: blur(12px);
-  background-color: var(--bg-navbar);
   border-bottom: 1px solid var(--border);
   transition: all 0.3s ease;
 }
 
-.nav-link.active {
+.navbar .nav-link {
+  color: var(--text-main) !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  color: var(--accent) !important;
+  transform: scale(1.05);
+}
+
+.navbar .nav-link.active {
   color: var(--accent) !important;
   font-weight: 700;
   position: relative;
 }
 
-.nav-link.active::after {
+.navbar .nav-link.active::after {
   content: '';
   position: absolute;
-  bottom: 0; left: 10%;
-  width: 80%; height: 3px;
+  bottom: -6px;
+  left: 10%;
+  width: 80%;
+  height: 3px;
   background: var(--accent);
   border-radius: 2px;
 }
 
+.navbar-brand {
+  color: var(--text-main) !important;
+}
+
 /* ==========================
-   ESTRUCTURA DE SECCIONES
+   SECCIONES
 ========================== */
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 section {
   padding: 80px 0;
-  scroll-margin-top: 80px;
+  scroll-margin-top: 90px;
 }
 
-/* Animación de Entrada Secuencial */
+/* Animaciones */
 .section-title {
   opacity: 0;
+  transform: translateX(-40px);
   transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-  letter-spacing: -0.5px;
 }
-
-/* Desplazamiento alternado según la sección */
-#home .section-title, #skills .section-title, #resume .section-title { transform: translateX(-40px); }
-#about .section-title, #projects .section-title, #contact .section-title { transform: translateX(40px); }
 
 .section-title.animate {
   opacity: 1;
-  transform: translateX(0) !important;
+  transform: translateX(0);
 }
 
 /* ==========================
-   COMPONENTES: BLINDAJE Y ACCIÓN
+   CARDS
 ========================== */
 .project-card {
   background: var(--bg-card);
@@ -96,16 +119,18 @@ section {
   border-color: var(--accent);
 }
 
-/* Botón de Acción Principal */
+/* ==========================
+   BOTONES
+========================== */
 .cta-button {
   display: inline-block;
   padding: 12px 28px;
   background-color: var(--accent);
-  color: #FFFFFF !important;
+  color: #fff !important;
   border: 2px solid var(--accent);
   border-radius: 6px;
   font-weight: 700;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
   text-decoration: none;
 }
 
@@ -113,26 +138,17 @@ section {
   background-color: transparent;
   color: var(--accent) !important;
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(30, 58, 138, 0.2);
 }
 
 /* ==========================
-   ADAPTACIÓN MÓVIL (FUERZA BRUTA)
+   MOBILE
 ========================== */
 @media (max-width: 768px) {
-  .section-title { font-size: 2rem; }
-  .cta-button { width: 100%; text-align: center; margin: 10px 0; }
-  section { padding: 50px 0; }
-}
+  section {
+    padding: 50px 0;
+  }
 
-/* Iconos de Habilidad: Sin distorsión, solo presencia */
-.skill-icon {
-  font-size: 3.5rem;
-  color: var(--accent);
-  filter: grayscale(20%);
-  transition: filter 0.3s ease;
-}
-
-.skill-icon:hover {
-  filter: grayscale(0%) drop-shadow(0 0 8px var(--accent));
+  .section-title {
+    font-size: 2rem;
+  }
 }

@@ -8,6 +8,7 @@ import Projects from './components/Projects';
 import Resume from './components/Resume';
 import Contact from './components/Contact';
 import ScrollReveal from './components/ScrollReveal';
+import Certification from './components/Certification';
 import { ThemeProvider } from './context/ThemeContext';
 import './styles/index.css';
 import './styles/themes.css';
@@ -25,6 +26,7 @@ function App() {
           <section id="home" aria-label="Home section"><Home /></section>
           <section id="about" aria-label="About section"><About /></section>
           <section id="skills" aria-label="Skills section"><Skills /></section>
+          <section id="certification" aria-label="Certifications section"><Certification /></section>
           <section id="projects" aria-label="Projects section"><Projects /></section>
           <section id="resume" aria-label="Resume section"><Resume /></section>
           <section id="contact" aria-label="Contact section"><Contact /></section>

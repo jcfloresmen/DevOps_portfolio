@@ -96,7 +96,7 @@ const Projects = () => {
     <Container className="section">
       <Row>
         <Col lg={8} className="mx-auto text-center">
-          <h2 className="section-title">Juan Carlos Flores Mendoza - DevOps Projects</h2>
+          <h2 className="section-title">DevOps Projects</h2>
           <p className="lead mb-5">Key projects demonstrating DevOps expertise and cloud architecture</p>
         </Col>
       </Row>
