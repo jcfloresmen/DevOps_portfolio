@@ -1,16 +1,22 @@
 {
   "files": {
-    "main.css": "/DevOps_portfolio/static/css/main.7e50e164.css",
-    "main.js": "/DevOps_portfolio/static/js/main.27d659d0.js",
+    "main.css": "/DevOps_portfolio/static/css/main.730f2e97.css",
+    "main.js": "/DevOps_portfolio/static/js/main.6bc08d5e.js",
     "static/js/453.c2e8e339.chunk.js": "/DevOps_portfolio/static/js/453.c2e8e339.chunk.js",
     "static/media/photo-jcfloresmen.jpeg": "/DevOps_portfolio/static/media/photo-jcfloresmen.9fc7cc94328c53d2d784.jpeg",
+    "static/media/Oracle Cloud Infrastructure 2025 Certified.png": "/DevOps_portfolio/static/media/Oracle Cloud Infrastructure 2025 Certified.3677a016af01a3c77567.png",
+    "static/media/AWS Certified Solutions Architect – Associate.png": "/DevOps_portfolio/static/media/AWS Certified Solutions Architect – Associate.5de5ac5041c48c198d8b.png",
+    "static/media/Scrum.png": "/DevOps_portfolio/static/media/Scrum.f74871529549d0942b8e.png",
+    "static/media/AWS Certified Cloud Practitioner.jpg": "/DevOps_portfolio/static/media/AWS Certified Cloud Practitioner.1d4d9fa250269a5b5067.jpg",
+    "static/media/Microsoft Certified- Azure Fundamentals.png": "/DevOps_portfolio/static/media/Microsoft Certified- Azure Fundamentals.4c16a436a090263d3f5d.png",
+    "static/media/microsoft-certified-associate.svg": "/DevOps_portfolio/static/media/microsoft-certified-associate.2b0771425bd47b49917ba320d033a2b7.svg",
     "index.html": "/DevOps_portfolio/index.html",
-    "main.7e50e164.css.map": "/DevOps_portfolio/static/css/main.7e50e164.css.map",
-    "main.27d659d0.js.map": "/DevOps_portfolio/static/js/main.27d659d0.js.map",
+    "main.730f2e97.css.map": "/DevOps_portfolio/static/css/main.730f2e97.css.map",
+    "main.6bc08d5e.js.map": "/DevOps_portfolio/static/js/main.6bc08d5e.js.map",
     "453.c2e8e339.chunk.js.map": "/DevOps_portfolio/static/js/453.c2e8e339.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7e50e164.css",
-    "static/js/main.27d659d0.js"
+    "static/css/main.730f2e97.css",
+    "static/js/main.6bc08d5e.js"
   ]
 }
